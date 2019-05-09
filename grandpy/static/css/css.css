@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+#gauche {
+    float: left;
+    width: 60%;
+    height: 1000px;
+    background-color: #EFECCA;
+}
+#droite {
+    background-color: #CEFFF8;
+    height: 1000px;
+    padding : 10px;
+    padding-left: 61%;
+}
+
+.shadow:hover{
+    box-shadow: 6px 6px 0px black;
+}
