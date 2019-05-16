@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from grandpy.parseur import Parseur
 
 app = Flask(__name__)
@@ -13,23 +13,15 @@ def home():
 
 @app.route('/', methods=['POST'])
 def text_box():
+    #return request.form['phrase_utilisateur']
     text = Parseur(request.form['phrase_utilisateur'])
     text.action()
-    return render_template("index.html" , message = text.phrase_corige )
+    return render_template("index.html" , message = text.phrase_corige, message_originel = text.phrase_originale, recit = text.recit)
 
 
 if __name__ == "__main__":
     app.run()
 
-############### FAIRE DU TDD 
 
-#if __name__ == '__main__':
-#    def main():
-#        """Hello world"""
-#        phrase = input("Veuillez entrer une phrase\n\n")
-#        if phrase == "1":
-#            test1 = Parseur("Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?")
-#            test1.action()
-#        else:
-#            test = Parseur(phrase)
-#            test.action()
+#  AIzaSyAU0ruTznnqHEfl7Yu0nkozg1aJ-6SXfSI  cle API google map
+
