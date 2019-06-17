@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Grandpy __en developpement__</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+  </head>
+
+  <body>
+    <header id="conteneur">
+      <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
+      <h1>Grandpy vous écoute:</h1>
+    </header>
+    <div id="main">
+      <div id="map"></div>
+      <div id="image"></div>
+      <div id="reponse_texte">
+        <p id="titre_wiki"></p>
+        <p id="contenu_wiki"></p>
+      </div>
+      <div id="input_et_bouton">
+        <input type="text" id="query" placeholder="Search for something...">
+        <button id="search">Search</button>
+      </div>
+    </div>
+    <footer>
+        <div class="panel panel-body">
+          <p>Tous droits réservés par moi...</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/js.js') }}"></script>
+  </body>
+</html>
