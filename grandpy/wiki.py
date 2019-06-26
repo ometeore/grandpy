@@ -16,13 +16,18 @@ class Wiki:
     def titre_et_resume(self):
         liste_titre_et_resume = {}
         liste_titre_et_resume["title"] = self.title
-        liste_titre_et_resume["resume"] = self.summary
-        print (liste_titre_et_resume)
+        liste_titre_et_resume["resume"] = self.cut_thousand_word(self.summary)
         return liste_titre_et_resume
 
 
-    #ne peut renvoyer des objets non callables
 
-        #liste_titre_et_resume = {}
-        #liste_titre_et_resume["title"] = self.title
-        #liste_titre_et_resume["resume"] = self.summary
+
+    def cut_thousand_word(self, phrase):
+        decompose = phrase.split()
+        decompose2 = []
+        if (len(decompose)>50):
+            decompose = decompose[:50]
+        decompose2 =" ".join(decompose)
+        print(decompose2)
+        return decompose2
+

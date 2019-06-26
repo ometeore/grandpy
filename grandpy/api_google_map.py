@@ -16,12 +16,9 @@ class Ggmap:
         self.latitude = self.resultat_json["results"][0]["geometry"]["location"]["lat"]
         self.longitude = self.resultat_json["results"][0]["geometry"]["location"]["lng"]
 
-        self.photo_payload = {"key" : key, "maxwidth" : 500, "maxwidth" : 500, "photoreference" : self.photo_id}
-        self.photo_request = requests.get(photos_url, params=self.photo_payload)
-
-        self.photo_type = imghdr.what("", self.photo_request.content)
-        self.photo_name = "static/images/" + query + "." + self.photo_type
+        self.photo_payload = {"key" : key, "maxwidth" : 500, "photoreference" : self.photo_id}
+        self.photo_request = "https://maps.googleapis.com/maps/api/place/photo?" + "key=" + key + "&maxwidth=500&photoreference=" + self.photo_id
 
 
     def resultat(self):
-        return self.photo_payload
+        return self.photo_request

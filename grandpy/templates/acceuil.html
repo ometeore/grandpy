@@ -4,32 +4,34 @@
     <meta charset="UTF-8">
     <title> Grandpy __en developpement__</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
-    <header id="conteneur">
+    <header class="ligne_align">
       <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
       <h1>Grandpy vous écoute:</h1>
     </header>
-    <div id="main">
-      <div id="map"></div>
-      <div id="image"></div>
-      <div id="reponse_texte">
-        <p id="titre_wiki"></p>
-        <p id="contenu_wiki"></p>
+    
+    <div class="column_align margin_auto">
+      <div id="main" class="column_align">
       </div>
-      <div id="input_et_bouton">
+      <div id="input_et_bouton margin_auto">
         <input type="text" id="query" placeholder="Search for something...">
         <button id="search">Search</button>
       </div>
     </div>
-    <footer>
-        <div class="panel panel-body">
-          <p>Tous droits réservés par moi...</p>
-        </div>
-    </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--   le footer  -->
+
+    <div id="footer" class="ligne_align">
+      <p>sud 0 pilt</p>
+      <p> lien vers le repo github:  https://github.com/ometeore/grandpy.git</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/js.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

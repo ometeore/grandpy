@@ -42,11 +42,16 @@ def api_wiki(query):
     phrase_corrige = Parseur(query)
     phrase_corrige.action()
     retour = {}
-    wiki = Wiki(query)
-    retour.update(wiki.titre_et_resume())
-    ggm = Ggmap(query)
-    retour["image"] = ggm.resultat()
-    return jsonify(retour)
+    for element in phrase_corrige.recit:
+        try:
+            wiki = Wiki(element)
+            retour.update(wiki.titre_et_resume())
+            ggm = Ggmap(element)
+            retour["image"] = ggm.resultat()
+            print(retour)
+            return jsonify(retour)
+        except:
+            print(element)
 
 
 #################################################################################################################
