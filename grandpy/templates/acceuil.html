@@ -10,35 +10,40 @@
   </head>
 
   <body>
-    <header class="ligne_align">
-      <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
-      <h1>Grandpy vous écoute:</h1>
-    </header>
-    
-    <div class="column_align margin_auto">
-      <div id="main" class="column_align">
+
+    <div id="main_wrapper" class="column_align">
+
+      <header class="ligne_align">
+        <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
+        <h1> Grandpy vous écoute: </h1>
+      </header>
+      
+
+
+      <div class="column_align margin_auto">
+          <div id="input_et_bouton" class="margin_auto">
+              <input type="text" id="query" placeholder="Search for something...">
+              <button id="search">Search</button>
+            </div>
+        <div id="main" class="column_align"></div>
       </div>
-      <div id="input_et_bouton margin_auto">
-        <input type="text" id="query" placeholder="Search for something...">
-        <button id="search">Search</button>
+
+
+      <div id="footer" class="ligne_align">
+        <p>sud 0 pilt</p>
+        <p> lien vers le repo github:  https://github.com/ometeore/grandpy.git</p>
       </div>
+
     </div>
-
-
-
-
-<!--   le footer  -->
-
-    <div id="footer" class="ligne_align">
-      <p>sud 0 pilt</p>
-      <p> lien vers le repo github:  https://github.com/ometeore/grandpy.git</p>
-    </div>
+  </div>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU0ruTznnqHEfl7Yu0nkozg1aJ-6SXfSI&callback=initMap"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/js.js') }}"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  </body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  
+  </body>
   </html>
 
 

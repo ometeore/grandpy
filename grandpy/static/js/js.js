@@ -2,6 +2,15 @@ $(function () {
 
     "use strict";
 
+
+    /*adapter la taille de la page a la hauteur de l'ecran*/
+
+    var Hscreen=screen.height;
+    var page_wrapp = document.getElementById("main_wrapper");
+    page_wrapp.style.height = Hscreen +"px";
+
+
+
     $("#search").click(function(){
       console.log("ok");
       var wiki_requete = $.get("/wikiRequest/" + $("#query").val());
@@ -26,7 +35,9 @@ $(function () {
         div_image.className="margin_30";
         div_image.append(balise)
 
-        section_reponse.append(div_image, div_text)
+        var hr = document.createElement("hr");
+
+        section_reponse.append(div_image, div_text, hr)
         $("#main").prepend(section_reponse)
       
         var div_carte = document.createElement("div");
