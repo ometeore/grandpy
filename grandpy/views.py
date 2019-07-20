@@ -21,37 +21,22 @@ def home():
     return render_template("acceuil.html")
 
 #################################################################################################################
-#                                       réponse POST au formulaire grandy                                       #
-#################################################################################################################
-
-@app.route('/contenu_user/<string:phrase>')
-def afficher(phrase):
-
-    ggm = Ggmap(phrase_corrige.phrase_corige[0])
-    wiki = Wiki(phrase_corrige.phrase_corige[0])
-
-    dico = {"phrase" : phrase_corrige.phrase_corige, "latitude":ggm.latitude, "longitude":ggm.longitude, "titre": wiki.title, "contenu":wiki.summary}
-    return jsonify(dico)
-#################################################################################################################
 #                                                réponse google map                                             #
 #################################################################################################################
 
 
 @app.route("/wikiRequest/<string:query>")
 def api_wiki(query):
-    phrase_corrige = Parseur(query)
-    phrase_corrige.action()
+    demande = Parseur(query)
+    demande.action()
     retour = {}
-    for element in phrase_corrige.recit:
-        try:
-            wiki = Wiki(element)
-            retour.update(wiki.titre_et_resume())
-            ggm = Ggmap(element)
-            retour["image"] = ggm.resultat()
-            print(retour)
-            return jsonify(retour)
-        except:
-            print(element)
+    wiki = Wiki(demande.phrase_corige)
+    ggm = Ggmap(demande.phrase_corige)
+    module_map_answer = ggm.resultat()
+    retour = {"phrase" : demande.phrase_corige, "title": wiki.title, "resume":wiki.summary, "latitude":ggm.latitude, "longitude":ggm.longitude, "image": module_map_answer[0]}
+    print(retour)
+    return jsonify(retour)
+
 
 
 #################################################################################################################
