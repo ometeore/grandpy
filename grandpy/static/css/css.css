@@ -54,6 +54,6 @@ header
     height: 400px;
     width: 100%;
 }
-h1{
+h1, p{
     font-family: Georgia, 'Times New Roman', Times, serif, "Arial Black", Arial, Verdana, sans-serif;
 }

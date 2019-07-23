@@ -11,7 +11,7 @@ class Wiki:
         self.title = self.page.title
         self.url = self.page.url
         self.content = self.page.content
-        self.summary = self.cut_thousand_word(self.page.summary)
+        self.summary = self.cut_thousand_word(self.page.summary, 100)
 
     def titre_et_resume(self):
         liste_titre_et_resume = {}
@@ -19,12 +19,11 @@ class Wiki:
         liste_titre_et_resume["resume"] = self.cut_thousand_word(self.summary)
         return liste_titre_et_resume
 
-    def cut_thousand_word(self, phrase):
+    def cut_thousand_word(self, phrase, longeur):
         decompose = phrase.split()
         decompose2 = []
-        if (len(decompose)>50):
-            decompose = decompose[:50]
+        if (len(decompose)>longeur):
+            decompose = decompose[:longeur]
         decompose2 =" ".join(decompose)
-        print(decompose2)
         return decompose2
 

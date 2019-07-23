@@ -9,7 +9,7 @@ class Ggmap:
     def __init__(self, query):
         self.info_recherche = {"key":key, "query":query}
         self.requete_resultat = requests.get(search_url, params=self.info_recherche)
-        
+
         self.resultat_json = self.requete_resultat.json()
 
         self.photo_id = self.resultat_json["results"][0]["photos"][0]["photo_reference"]

@@ -1,6 +1,10 @@
 import grandpy.parseur as pars
 import pytest
 
+@pytest.fixture
+def phrase(request):
+    return pars(request.param)
+
 
 @pytest.mark.parametrize("phrase",[
     "test     les noix de cajoux 24 chemin de transoxiane",
