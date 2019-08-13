@@ -5,34 +5,100 @@
     <title> Grandpy __en developpement__</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
- 
   </head>
+
+
+
+  <!--  Problème de front:
+          carousel qui defile,
+          gestion de l'onglet actif du carousel,
+          ajouter la carte,
+          controle du responsive
+  -->
+
+
 
   <body>
 
-    <div id="main_wrapper" class="column_align">
+    <!-- HEADER -->
 
-      <header class="ligne_align">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <p class="navbar-brand" href="#">Grandpy vous écoute: </p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+        </button>
         <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
-        <h1> Grandpy vous écoute: </h1>
-      </header>
+
+      </div>
+    </nav>
+
+    <!-- CAROUSEL -->
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <!--<ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>-->
+
+        
+        <div class="carousel-inner" role="listbox">
+
+
+
+
+
+
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active">
+            <div class="carousel-caption d-none d-md-block column_align">
+              <img src="{{url_for('static', filename='images/harold.jpeg') }}" alt="harold" id="harold">
+              <h3 class="display-4">Bienvenu petit!</h3>
+              <p class="lead">Je sens que tu es venu entendre une histoire... Quand tu sauras sur quoi demande moi dans le champs de saisi en bas. Puis utilise les flèches pour retrouver l'ensemble de notre dialogue.... Grandpy a une mémoire d'éléphant.</p>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
+
+        <!-- les boutons droite et gauche du carousel-->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+
+
+      </div>
+    </header>
+    
+    <!-- FOOTER -->
+    <section id="footer" class="py-5 fixed-bottom">
+      <div class="container column_align">
+        <h1 class="font-weight-light"> Posez votre question a grandpy:</h1>
+
+        <form id="form">
+          <input type="text" id="query" placeholder="Search for something...">
+          
+          <button type="submit" id="search">Search</button>
+       </form>
+        <p class="lead">Le code de ce projet peut etre retouvé sur gitHub en suivant ce lien: <a href="https://github.com/ometeore/grandpy.git  ">git</a>!</p>
+      </div>
+    </section>
       
 
 
-      <div class="column_align margin_auto">
-          <div id="input_et_bouton" class="margin_auto">
-              <input type="text" id="query" placeholder="Search for something...">
-              <button id="search">Search</button>
-            </div>
-        <div id="main" class="column_align"></div>
-      </div>
 
 
-      <div id="footer" class="ligne_align">
-        <p>sud 0 pilt</p>
-        <p> lien vers le repo github:  https://github.com/ometeore/grandpy.git</p>
-      </div>
 
     </div>
   </div>

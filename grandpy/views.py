@@ -31,10 +31,19 @@ def api_wiki(query):
     demande.action()
     retour = {}
     wiki = Wiki(demande.phrase_corige)
-    ggm = Ggmap(demande.phrase_corige)
-    module_map_answer = ggm.resultat()
-    retour = {"phrase" : demande.phrase_corige, "title": wiki.title, "resume":wiki.summary, "latitude":ggm.latitude, "longitude":ggm.longitude, "image": module_map_answer[0]}
-    print(retour)
+    module_wiki = wiki.resultat()
+    if not module_wiki:
+        retour = {"phrase" : "erreur j'ai pas trouvé...", "title": "oups, wiki" , "resume":"papi préfère jouer de la flute, la phrase était:" + demande.phrase_originale +" le parseur a rendu:" + demande.phrase_corige, "latitude": -27.112723, "longitude": -109.3496865, "image": ""}
+    else:
+        wiki.action()
+        ggm = Ggmap(demande.phrase_corige)
+        module_map_answer = ggm.resultat()
+        if not module_map_answer:
+            retour = {"phrase" : "erreur j'ai pas trouvé...", "title": "oups, google map" , "resume":"papi préfère jouer de la flute, la phrase était:" + demande.phrase_originale +" le parseur a rendu:" + demande.phrase_corige, "latitude": -27.112723, "longitude": -109.3496865, "image": ""}
+            print(retour)
+            return jsonify(retour)
+        retour = {"phrase" : demande.phrase_corige, "title": wiki.title, "resume":wiki.summary, "latitude":ggm.latitude, "longitude":ggm.longitude, "image": module_map_answer[0]}
+        print(retour)
     return jsonify(retour)
 
 
