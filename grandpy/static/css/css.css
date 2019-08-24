@@ -18,17 +18,9 @@ html{
     justify-content: space-around;
     align-items: center;
 }
-#main_wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
+
 header
 {
-    height: 150px;
-    background: #1de3c8;
     width: 100%;
 }
 #footer
@@ -36,24 +28,11 @@ header
     text-align: center;
 }
 
-#main{
-    width: 80%;
-    overflow: scroll;
-}
-.photo_lieu{
-    height: 200px;
-}
-.margin_30{
-    margin: 30px;
-}
-.margin_auto{
-    margin: auto;
-}
 #map{
-    height: 400px;
+    height: 50%;
     width: 100%;
 }
-h1, p{
+h1, p, h3{
     font-family: Georgia, 'Times New Roman', Times, serif, "Arial Black", Arial, Verdana, sans-serif;
 }
 #input_et_bouton{
@@ -61,7 +40,7 @@ h1, p{
 }
 
 .carousel-item {
-    height: 80vh;
+    height: 65vh;
     min-height: 350px;
     background: no-repeat center center scroll #222222;
     -webkit-background-size: cover;
@@ -80,6 +59,7 @@ h1, p{
     box-shadow: 0 0 25px 2px #eee;
     animation: spin 1s linear infinite;
     margin:auto;
+    margin-bottom: 320px;
 }
 
 @keyframes spin
@@ -87,4 +67,23 @@ h1, p{
 	from { transform: rotate(0deg);   opacity: 0.2; }
 	50%  { transform: rotate(180deg); opacity: 1.0; }
 	to   { transform: rotate(360deg); opacity: 0.2; }
+}
+.item_du_carousel{
+    color: white;
+    margin: auto;
+    height:94%;
+    width: 75%;
+}
+@media screen and (max-width: 640px) {
+    .overflow_scroll{
+        overflow: scroll;
+        height:30%; 
+    }
+    .carousel-item{
+        height:80vh;
+    }
+  }
+
+.align_center{
+    text-align:center;
 }

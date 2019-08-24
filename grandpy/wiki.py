@@ -13,9 +13,17 @@ class Wiki:
     def resultat(self):
         try:
             self.page = wikipedia.page(self.phrase)
-        except wikipedia.exceptions.PageError as e:
-            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        except Exception as e:
+            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+#######https://wikipedia.readthedocs.io/en/latest/code.html#module-wikipedia.exceptions
+#######  Soulever plus d'exeception et les passer a view pour les afficher proprement en front
+
+
+
+            print(e.args)
             return None
+        
+        
 
         self.title = self.page.title
         self.summary =self.page.summary

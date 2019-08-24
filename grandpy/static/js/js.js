@@ -22,21 +22,7 @@ $(function () {
 
       div_provisoire.append(div_loader)
       document.querySelector('.active').classList.remove('active')
-      $(".carousel-inner").prepend(div_provisoire)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      $(".carousel-inner").append(div_provisoire)
 
 
       var div_reponse = document.createElement("div");
@@ -49,24 +35,23 @@ $(function () {
         /* creer une balise et la remplie avec les info envoyé en ajax */
 
         var div_carousel = document.createElement("div");
-        div_carousel.className = "carousel-caption d-none d-md-block";
+        div_carousel.className = "column_align item_du_carousel";
 
         var text2 = $(div_carousel)
-        text2.html("<h3 class='display-4'>" + data["title"] + "</h3><p class='lead'>" + data["resume"] + "</p>") 
+        text2.html("<h3 class='align_center'>" + data["title"] + "</h3><p class='lead overflow_scroll'>" + data["resume"] + "</p>") 
 
        
         div_reponse.append(div_carousel)
         /*enlever l'element du carousel qui a deja la classe active
         document.querySelector('.active').classList.remove('active')*/
 
-        $(".carousel-inner").prepend(div_reponse)
+        $(".carousel-inner").append(div_reponse)
 
-      
         var div_carte = document.createElement("div");
         var id = new Date().getTime();
         div_carte.id = id;
         div_carousel.prepend(div_carte);
-        
+
         div_carte.style.width= "100%";
         div_carte.style.height = "400px";
 
@@ -75,10 +60,11 @@ $(function () {
           div_carte, {zoom: 4, center: carte}
         );
         var marker = new google.maps.Marker({position: carte, map: map});
+        document.querySelector('#supprimer').remove()
       });
       console.log("ok");
-      document.querySelector('.carousel-item:first-child').classList.add('active')
-      document.querySelector('#supprimer').remove()
+      document.querySelector('.carousel-item:last-child').classList.add('active')
+      
 
       return false;
   });
